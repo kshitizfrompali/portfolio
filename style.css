@@ -360,3 +360,59 @@ section {
   overflow: hidden;
   box-shadow: 0 20px 60px rgba(0,0,0,0.4);
 }
+
+/* ── Contact ──────────────────────────────────────────────── */
+.contact { text-align: center; }
+
+.contact__desc {
+  font-size: 16px;
+  color: var(--text-dim);
+  margin-bottom: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.contact__links {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.contact__link {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-dim);
+  padding: 14px 28px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  transition: all 0.2s;
+  min-width: 300px;
+  justify-content: center;
+}
+.contact__link:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px var(--accent-glow);
+}
+
+.contact__icon {
+  font-size: 14px;
+  font-weight: 700;
+  width: 24px;
+  text-align: center;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+.footer {
+  padding: 32px 0;
+  border-top: 1px solid var(--border);
+  text-align: center;
+  font-size: 13px;
+  color: var(--text-muted);
+}
