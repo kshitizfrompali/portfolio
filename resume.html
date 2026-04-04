@@ -88,10 +88,19 @@
     </div>
   </div>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <script>
-    // Auto-trigger print when opened with ?print=1
-    if (new URLSearchParams(window.location.search).get('print') === '1') {
-      window.addEventListener('load', () => window.print());
+    if (new URLSearchParams(window.location.search).get('download') === '1') {
+      window.addEventListener('load', () => {
+        const opt = {
+          margin: [10, 16, 10, 16],
+          filename: 'kshitiz-khanal-resume.pdf',
+          image: { type: 'jpeg', quality: 0.98 },
+          html2canvas: { scale: 2, useCORS: true },
+          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().set(opt).from(document.body).save();
+      });
     }
   </script>
 
