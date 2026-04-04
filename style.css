@@ -256,3 +256,90 @@ section {
   border-color: var(--accent);
   transform: translateY(-1px);
 }
+
+/* ── Experience / Timeline ────────────────────────────────── */
+.timeline { position: relative; }
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 8px; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+}
+
+.timeline__item {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 32px;
+  padding-left: 28px;
+  margin-bottom: 48px;
+  position: relative;
+}
+.timeline__item::before {
+  content: '';
+  position: absolute;
+  left: -4px; top: 10px;
+  width: 9px; height: 9px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 12px var(--accent-glow);
+}
+
+.timeline__meta { padding-top: 4px; }
+
+.timeline__date {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-muted);
+  letter-spacing: 0.3px;
+  white-space: nowrap;
+}
+
+.timeline__card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+.timeline__card:hover {
+  border-color: rgba(56,189,248,0.3);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+}
+
+.timeline__header { margin-bottom: 16px; }
+
+.timeline__company {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 4px;
+}
+
+.timeline__role {
+  font-size: 13px;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.timeline__bullets {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.timeline__bullets li {
+  font-size: 14.5px;
+  color: var(--text-dim);
+  line-height: 1.65;
+  padding-left: 16px;
+  position: relative;
+}
+.timeline__bullets li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-size: 11px;
+  top: 3px;
+}
