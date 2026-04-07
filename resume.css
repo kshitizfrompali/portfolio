@@ -105,6 +105,6 @@ body {
 
 /* Print */
 @media print {
-  body { padding: 0; }
-  @page { margin: 18mm 16mm; size: A4; }
+  body { padding: 48px 56px; }
+  @page { margin: 0; size: A4; }
 }
