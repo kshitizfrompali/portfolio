@@ -4,108 +4,416 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kshitiz Khanal — Resume</title>
-  <link rel="stylesheet" href="resume.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --accent:      #1d4ed8;
+      --accent-soft: rgba(29,78,216,0.08);
+      --dark:        #0f172a;
+      --body-text:   #1e293b;
+      --muted:       #64748b;
+      --sidebar-bg:  #f7f6f2;
+      --line:        #e2e8f0;
+      --serif:       'Cormorant Garamond', Georgia, serif;
+      --sans:        'Manrope', system-ui, sans-serif;
+    }
+
+    /* ── Page setup ── */
+    @page {
+      size: A4 portrait;
+      margin: 0;
+    }
+
+    html { font-size: 10px; }
+
+    body {
+      font-family: var(--sans);
+      color: var(--body-text);
+      background: #fff;
+      width: 210mm;
+      height: 297mm;
+      overflow: hidden;           /* hard clamp to one page */
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      -webkit-print-color-adjust: exact;
+      print-color-adjust: exact;
+    }
+
+    /* ── Save button — hidden on print ── */
+    .save-btn {
+      position: fixed;
+      bottom: 24px;
+      right: 24px;
+      background: var(--dark);
+      color: #fff;
+      border: none;
+      padding: 11px 22px;
+      font-family: var(--sans);
+      font-size: 1.15rem;
+      font-weight: 600;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      cursor: pointer;
+      border-radius: 4px;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+      transition: background 0.15s;
+      z-index: 999;
+    }
+    .save-btn:hover { background: var(--accent); }
+
+    @media print {
+      .save-btn { display: none !important; }
+    }
+
+    /* ══════════════════════════════
+       HEADER
+    ══════════════════════════════ */
+    .rh {
+      background: var(--dark);
+      padding: 22px 32px 20px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 12px;
+      flex-shrink: 0;
+    }
+
+    .rh-name {
+      font-family: var(--serif);
+      font-size: 5.2rem;
+      font-weight: 600;
+      color: #fff;
+      letter-spacing: -0.01em;
+      line-height: 0.95;
+    }
+
+    .rh-title {
+      margin-top: 7px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.5);
+    }
+
+    .rh-contact {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 4px;
+      font-size: 0.92rem;
+      line-height: 1.5;
+    }
+
+    .rh-contact a,
+    .rh-contact span {
+      color: rgba(255,255,255,0.65);
+      text-decoration: none;
+    }
+    .rh-contact a:hover { color: #fff; }
+
+    /* ══════════════════════════════
+       BODY — two columns
+    ══════════════════════════════ */
+    .rb {
+      display: grid;
+      grid-template-columns: 34% 66%;
+      flex: 1;
+      min-height: 0;
+    }
+
+    /* ── Sidebar ── */
+    .sidebar {
+      background: var(--sidebar-bg);
+      padding: 22px 20px 16px;
+      border-right: 1px solid var(--line);
+      overflow: hidden;
+    }
+
+    /* ── Main ── */
+    .main {
+      padding: 22px 28px 16px 22px;
+      overflow: hidden;
+    }
+
+    /* ══════════════════════════════
+       SECTION CHROME
+    ══════════════════════════════ */
+    .sec {
+      margin-bottom: 18px;
+    }
+    .sec:last-child { margin-bottom: 0; }
+
+    .sec-label {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.24em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-bottom: 5px;
+      margin-bottom: 10px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    /* ══════════════════════════════
+       SKILLS
+    ══════════════════════════════ */
+    .skill-row {
+      margin-bottom: 7px;
+    }
+
+    .sk-cat {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--dark);
+      display: block;
+      margin-bottom: 1px;
+    }
+
+    .sk-vals {
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 400;
+      line-height: 1.45;
+    }
+
+    /* ══════════════════════════════
+       EDUCATION
+    ══════════════════════════════ */
+    .edu-degree {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: var(--dark);
+      line-height: 1.35;
+    }
+
+    .edu-inst {
+      font-size: 0.82rem;
+      color: var(--muted);
+      margin-top: 2px;
+      line-height: 1.4;
+    }
+
+    .edu-date {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      margin-top: 3px;
+    }
+
+    .edu-courses {
+      font-size: 0.78rem;
+      color: var(--muted);
+      margin-top: 6px;
+      line-height: 1.55;
+    }
+
+    /* ══════════════════════════════
+       ABOUT
+    ══════════════════════════════ */
+    .about-text {
+      font-size: 0.87rem;
+      line-height: 1.68;
+      color: var(--body-text);
+      font-weight: 300;
+    }
+
+    /* ══════════════════════════════
+       EXPERIENCE
+    ══════════════════════════════ */
+    .job {
+      margin-bottom: 15px;
+      padding-bottom: 15px;
+      border-bottom: 1px solid var(--line);
+    }
+    .job:last-child {
+      border-bottom: none;
+      margin-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+
+    .job-company {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--dark);
+    }
+
+    .job-date {
+      font-size: 0.75rem;
+      color: var(--accent);
+      font-weight: 600;
+      white-space: nowrap;
+      margin-left: 8px;
+    }
+
+    .job-role {
+      font-size: 0.8rem;
+      color: var(--muted);
+      font-weight: 500;
+      font-style: italic;
+      margin: 2px 0 7px;
+    }
+
+    .job-bullets {
+      list-style: none;
+      padding: 0;
+    }
+
+    .job-bullets li {
+      font-size: 0.84rem;
+      line-height: 1.55;
+      color: var(--body-text);
+      font-weight: 400;
+      padding-left: 14px;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .job-bullets li:last-child { margin-bottom: 0; }
+
+    .job-bullets li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+      font-size: 0.8rem;
+    }
+
+    /* ── thin rule between sidebar sections ── */
+    .sidebar .sec + .sec {
+      padding-top: 2px;
+    }
+
+  </style>
 </head>
 <body>
 
-  <!-- HEADER -->
-  <header class="r-header">
-    <div class="r-name">Kshitiz Khanal</div>
-    <div class="r-title">Software Engineer · AI / Data</div>
-    <div class="r-contact">
-      <span><a href="https://mail.google.com/mail/?view=cm&fs=1&to=khanalkshitiz05@gmail.com" target="_blank" rel="noopener">khanalkshitiz05@gmail.com</a></span>
-      <span><a href="https://www.linkedin.com/in/kshitizkhanal05/">linkedin.com/in/kshitizkhanal05</a></span>
+  <button class="save-btn" onclick="window.print()">Save as PDF ↓</button>
+
+  <!-- ══ HEADER ══ -->
+  <header class="rh">
+    <div>
+      <div class="rh-name">Kshitiz Khanal</div>
+      <div class="rh-title">Software Engineer &nbsp;·&nbsp; AI / Data</div>
+    </div>
+    <div class="rh-contact">
+      <a href="mailto:khanalkshitiz05@gmail.com">khanalkshitiz05@gmail.com</a>
+      <a href="https://linkedin.com/in/kshitizkhanal05" target="_blank">linkedin.com/in/kshitizkhanal05</a>
       <span>Kathmandu, Nepal</span>
     </div>
   </header>
 
-  <!-- SUMMARY -->
-  <div class="r-section">
-    <div class="r-section-title">About Me</div>
-    <p class="r-summary">
-      Software Engineer with experience building data pipelines, LLM-powered microservices, and clinical NLP systems.
-      Skilled across the backend stack from orchestrating Airflow DAGs and Celery task queues to integrating large
-      language models into healthcare workflows. Strong focus on reliability, data-intensive systems, and scalable architecture.
-      <br><br>
-      As AI reshapes how software is built, my thinking has shifted. I no longer just write features, I think in products.
-      Using AI-driven development, I move from idea to working system faster, and care as much about what to build as how to build it.
-    </p>
-  </div>
+  <!-- ══ BODY ══ -->
+  <div class="rb">
 
-  <!-- SKILLS -->
-  <div class="r-section">
-    <div class="r-section-title">Skills</div>
-    <div class="r-skills-grid">
-      <div class="r-skill-row"><strong>Languages:</strong> Python</div>
-      <div class="r-skill-row"><strong>Data &amp; Pipelines:</strong> SQL, Apache Airflow, PostgreSQL</div>
-      <div class="r-skill-row"><strong>Queuing:</strong> Celery, SQS, RabbitMQ</div>
-      <div class="r-skill-row"><strong>AI / NLP:</strong> spaCy, stanza, LLM Integration</div>
-      <div class="r-skill-row"><strong>Frameworks:</strong> Django, Flask, FastAPI</div>
-      <div class="r-skill-row"><strong>Cloud:</strong> AWS</div>
-      <div class="r-skill-row"><strong>Dev Tools:</strong> Claude Code, Git, Linux, Docker</div>
-    </div>
-  </div>
+    <!-- ── SIDEBAR ── -->
+    <aside class="sidebar">
 
-  <!-- EXPERIENCE -->
-  <div class="r-section">
-    <div class="r-section-title">Experience</div>
+      <div class="sec">
+        <div class="sec-label">Skills</div>
 
-    <div class="r-job">
-      <div class="r-job-header">
-        <span class="r-job-company">Maitri Services Pvt. Ltd.</span>
-        <span class="r-job-date">Mar 2024 — Present</span>
+        <div class="skill-row">
+          <span class="sk-cat">Languages</span>
+          <span class="sk-vals">Python</span>
+        </div>
+        <div class="skill-row">
+          <span class="sk-cat">Data &amp; Pipelines</span>
+          <span class="sk-vals">SQL · Apache Airflow · PostgreSQL</span>
+        </div>
+        <div class="skill-row">
+          <span class="sk-cat">Queuing</span>
+          <span class="sk-vals">Celery · SQS · RabbitMQ</span>
+        </div>
+        <div class="skill-row">
+          <span class="sk-cat">AI / NLP</span>
+          <span class="sk-vals">spaCy · stanza · LLM Integration</span>
+        </div>
+        <div class="skill-row">
+          <span class="sk-cat">Frameworks</span>
+          <span class="sk-vals">Django · Flask · FastAPI</span>
+        </div>
+        <div class="skill-row">
+          <span class="sk-cat">Cloud</span>
+          <span class="sk-vals">AWS (S3, SQS, EC2)</span>
+        </div>
+        <div class="skill-row">
+          <span class="sk-cat">Dev Tools</span>
+          <span class="sk-vals">Claude Code · Git · Docker · Linux</span>
+        </div>
       </div>
-      <div class="r-job-title">Software Engineer</div>
-      <ul class="r-bullets">
-        <li>Built and maintained an LLM based processing microservice for batch HCC medical code extraction using Django, Celery, SQS, and PostgreSQL</li>
-        <li>Developed multiple Apache Airflow DAGs for ETL, billing, and multi-tenant reporting pipelines</li>
-        <li>Implemented clinical NLP pipelines using spaCy and stanza for medical text extraction and negation detection</li>
-        <li>Integrated AWS S3/SQS and Google Cloud Storage/Vision for document processing workflows</li>
-      </ul>
-    </div>
 
-    <div class="r-job">
-      <div class="r-job-header">
-        <span class="r-job-company">Insight Workshop Pvt. Ltd.</span>
-        <span class="r-job-date">Jun 2023 — Mar 2024</span>
+      <div class="sec">
+        <div class="sec-label">Education</div>
+        <div class="edu-degree">Bachelor of Computer Engineering</div>
+        <div class="edu-inst">Institute of Engineering<br>Tribhuvan University · Kathmandu</div>
+        <div class="edu-date">Nov 2018 — Apr 2023</div>
+        <div class="edu-courses">
+          Big Data · Database Systems · Data Structures &amp; Algorithms
+          · Operating Systems · Cloud Computing · Software Engineering
+        </div>
       </div>
-      <div class="r-job-title">Software Engineer</div>
-      <ul class="r-bullets">
-        <li>Built REST APIs for an educational platform using Python, Django REST Framework, and PostgreSQL</li>
-        <li>Designed data models and implemented role-based access control (RBAC)</li>
-      </ul>
-    </div>
-  </div>
 
-  <!-- EDUCATION -->
-  <div class="r-section">
-    <div class="r-section-title">Education</div>
-    <div class="r-edu-header">
-      <span class="r-edu-degree">Bachelor of Computer Engineering</span>
-      <span class="r-edu-date">Nov 2018 — Apr 2023</span>
-    </div>
-    <div class="r-edu-inst">Institute of Engineering, Tribhuvan University · Kathmandu, Nepal</div>
-    <div class="r-edu-courses">
-      Relevant Coursework: Big Data, Database Systems, Data Structures &amp; Algorithms, Operating Systems,
-      Cloud Computing, Software Engineering
-    </div>
-  </div>
+    </aside>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
-  <script>
-    if (new URLSearchParams(window.location.search).get('download') === '1') {
-      window.addEventListener('load', () => {
-        const opt = {
-          margin: [10, 16, 10, 16],
-          filename: 'kshitiz-khanal-resume.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2, useCORS: true },
-          jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
-        };
-        html2pdf().set(opt).from(document.body).save();
-      });
-    }
-  </script>
+    <!-- ── MAIN ── -->
+    <main class="main">
+
+      <div class="sec">
+        <div class="sec-label">About</div>
+        <p class="about-text">
+          Software Engineer with experience building data pipelines, LLM-powered microservices, and clinical NLP
+          systems. Skilled across the backend stack — from orchestrating Airflow DAGs and Celery task queues to
+          integrating large language models into healthcare workflows. Strong focus on reliability, data-intensive
+          systems, and scalable architecture. As AI reshapes software development, my thinking has shifted:
+          I no longer just write features — I think in products.
+        </p>
+      </div>
+
+      <div class="sec">
+        <div class="sec-label">Experience</div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Maitri Services Pvt. Ltd.</span>
+            <span class="job-date">Mar 2024 — Present</span>
+          </div>
+          <div class="job-role">Software Engineer</div>
+          <ul class="job-bullets">
+            <li>Built and maintained an LLM-based microservice for batch HCC medical code extraction using Django, Celery, SQS, and PostgreSQL</li>
+            <li>Developed multiple Apache Airflow DAGs for ETL, billing, and multi-tenant reporting pipelines</li>
+            <li>Implemented clinical NLP pipelines using spaCy and stanza for medical text extraction and negation detection</li>
+            <li>Integrated AWS S3/SQS and Google Cloud Storage/Vision for document processing workflows</li>
+          </ul>
+        </div>
+
+        <div class="job">
+          <div class="job-header">
+            <span class="job-company">Insight Workshop Pvt. Ltd.</span>
+            <span class="job-date">Jun 2023 — Mar 2024</span>
+          </div>
+          <div class="job-role">Software Engineer</div>
+          <ul class="job-bullets">
+            <li>Built REST APIs for an educational platform using Python, Django REST Framework, and PostgreSQL</li>
+            <li>Designed data models and implemented role-based access control (RBAC)</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </main>
+  </div>
 
 </body>
 </html>
