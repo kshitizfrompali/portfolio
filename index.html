@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kshitiz Khanal — Software Engineer</title>
+  <title>Kshitiz Khanal — Software Engineer / AI · Data</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -11,185 +11,241 @@
   <!-- NAV -->
   <nav class="nav" id="nav">
     <div class="container nav__inner">
-      <a href="#" class="nav__name">Kshitiz Khanal</a>
+      <a href="#" class="nav__name">KK<span style="color:var(--accent);">/</span></a>
       <ul class="nav__links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
+        <li><a href="#about">01 · About</a></li>
+        <li><a href="#skills">02 · Skills</a></li>
+        <li><a href="#experience">03 · Work</a></li>
+        <li><a href="#contact">04 · Contact</a></li>
       </ul>
+      <span class="nav__status">Open to work</span>
     </div>
   </nav>
 
-  <!-- SECTIONS (placeholders — filled in later tasks) -->
-<section id="about" class="hero">
-  <div class="container hero__inner">
-    <div class="hero__eyebrow reveal">Building with AI &nbsp;·&nbsp; Thinking in Products</div>
-    <h1 class="hero__name reveal">Kshitiz<br>Khanal</h1>
-    <p class="hero__subtitle reveal">Software Engineer &nbsp;·&nbsp; AI / Data</p>
-    <p class="hero__bio reveal">
-      Software Engineer with experience building data pipelines, LLM-powered
-      microservices, and clinical NLP systems. I've worked across the backend
-      stack — from orchestrating Airflow DAGs and Celery task queues to
-      integrating large language models into healthcare workflows. I enjoy
-      solving data-heavy problems and shipping systems that work reliably at scale.
-      <br><br>
-      As AI reshapes how software is built, my thinking has shifted — I no longer
-      just write features, I think in products. Using AI-driven development, I move
-      from idea to working system faster, and care as much about what to build as
-      how to build it.
-    </p>
-    <div class="hero__ctas reveal">
-      <a href="https://www.linkedin.com/in/kshitizkhanal05/" target="_blank" rel="noopener" class="btn btn--primary">
-        LinkedIn ↗
-      </a>
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=khanalkshitiz05@gmail.com" target="_blank" rel="noopener" class="btn btn--ghost">
-        Email Me
-      </a>
-      <a href="resume.html?download=1" target="_blank" rel="noopener" class="btn btn--ghost">
-        ⬇ Download Resume
-      </a>
-    </div>
-  </div>
-  <div class="hero__grid-bg" aria-hidden="true"></div>
-</section>
-<section id="skills">
-  <div class="container">
-    <p class="section-label reveal">What I work with</p>
-    <h2 class="section-title reveal">Skills</h2>
-    <div class="skills-grid reveal">
+  <!-- HERO -->
+  <section id="about" class="hero">
+    <div class="container">
+      <div class="hero__grid">
 
-      <div class="skill-group">
-        <span class="skill-group__label">Languages</span>
-        <div class="chips">
-          <span class="chip">Python</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <span class="skill-group__label">Data &amp; Pipelines</span>
-        <div class="chips">
-          <span class="chip">SQL</span>
-          <span class="chip">Apache Airflow</span>
-          <span class="chip">PostgreSQL</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <span class="skill-group__label">Queuing</span>
-        <div class="chips">
-          <span class="chip">Celery</span>
-          <span class="chip">SQS</span>
-          <span class="chip">RabbitMQ</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <span class="skill-group__label">AI / NLP</span>
-        <div class="chips">
-          <span class="chip">spaCy</span>
-          <span class="chip">stanza</span>
-          <span class="chip">LLM Integration</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <span class="skill-group__label">Frameworks</span>
-        <div class="chips">
-          <span class="chip">Django</span>
-          <span class="chip">Flask</span>
-          <span class="chip">FastAPI</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <span class="skill-group__label">Cloud</span>
-        <div class="chips">
-          <span class="chip">AWS</span>
-        </div>
-      </div>
-
-      <div class="skill-group">
-        <span class="skill-group__label">Dev Tools</span>
-        <div class="chips">
-          <span class="chip">Claude Code</span>
-          <span class="chip">Git</span>
-          <span class="chip">Linux</span>
-          <span class="chip">Docker</span>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
-<section id="experience">
-  <div class="container">
-    <p class="section-label reveal">Where I've worked</p>
-    <h2 class="section-title reveal">Experience</h2>
-    <div class="timeline">
-
-      <div class="timeline__item reveal">
-        <div class="timeline__meta">
-          <span class="timeline__date">Mar 2024 — Present</span>
-        </div>
-        <div class="timeline__card">
-          <div class="timeline__header">
-            <h3 class="timeline__company">Maitri Services Pvt. Ltd.</h3>
-            <span class="timeline__role">Software Engineer</span>
+        <div class="hero__top reveal">
+          <div class="hero__meta">
+            <strong>Kathmandu</strong> · NPT &nbsp;|&nbsp;
+            <strong>Software Engineer</strong> · AI / Data &nbsp;|&nbsp;
+            <strong>EST. 2023</strong>
           </div>
-          <ul class="timeline__bullets">
-            <li>Built and maintained an LLM based processing microservice for batch HCC medical code extraction using Django, Celery, SQS, and PostgreSQL</li>
-            <li>Developed multiple Apache Airflow DAGs for ETL, billing, and multi-tenant reporting pipelines</li>
-            <li>Implemented clinical NLP pipelines using spaCy and stanza for medical text extraction and negation detection</li>
-            <li>Integrated AWS S3/SQS and Google Cloud Storage/Vision for document processing workflows</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="timeline__item reveal">
-        <div class="timeline__meta">
-          <span class="timeline__date">Jun 2023 — Mar 2024</span>
-        </div>
-        <div class="timeline__card">
-          <div class="timeline__header">
-            <h3 class="timeline__company">Insight Workshop Pvt. Ltd.</h3>
-            <span class="timeline__role">Software Engineer</span>
+          <div class="hero__meta">
+            ↓ Scroll &nbsp; · &nbsp; Portfolio / Vol. 01
           </div>
-          <ul class="timeline__bullets">
-            <li>Built REST APIs for an educational platform using Python, Django REST Framework, and PostgreSQL</li>
-            <li>Designed data models and implemented role-based access control (RBAC)</li>
-          </ul>
+        </div>
+
+        <h1 class="hero__name reveal">
+          Kshitiz<br>
+          Kha<span class="accent">n</span>al<span style="color:var(--accent);">.</span>
+        </h1>
+
+        <div class="hero__bottom reveal">
+          <div>
+            <p class="hero__tagline">
+              I build the boring plumbing behind <em>AI products</em> &mdash; data pipelines, LLM microservices, and clinical NLP that quietly works at scale.
+            </p>
+          </div>
+          <div class="hero__bio">
+            <p>Backend engineer working across Airflow, Celery, and large language models. Recent focus: healthcare workflows where the model is the easy part and the data is the hard part.</p>
+            <p>I think in products, not just features. AI lets me move from idea to working system fast &mdash; so I care as much about <em>what</em> to build as <em>how</em> to build it.</p>
+          </div>
+        </div>
+
+        <div class="hero__ctas reveal">
+          <a href="https://www.linkedin.com/in/kshitizkhanal05/" target="_blank" rel="noopener" class="btn btn--primary">
+            LinkedIn →
+          </a>
+          <a href="https://mail.google.com/mail/?view=cm&fs=1&to=khanalkshitiz05@gmail.com" target="_blank" rel="noopener" class="btn">
+            Email Me →
+          </a>
+          <a href="resume.html?download=1" target="_blank" rel="noopener" class="btn btn--accent">
+            ⬇ Resume PDF
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- MARQUEE -->
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track">
+      <span>Python</span><span>Airflow</span><span>LLM</span><span>PostgreSQL</span><span>Celery</span><span>Django</span><span>Clinical NLP</span><span>FastAPI</span><span>AWS</span><span>Docker</span>
+      <span>Python</span><span>Airflow</span><span>LLM</span><span>PostgreSQL</span><span>Celery</span><span>Django</span><span>Clinical NLP</span><span>FastAPI</span><span>AWS</span><span>Docker</span>
+    </div>
+  </div>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">02 /</span>
+        <div>
+          <p class="section-kicker">The toolkit · Stack</p>
+          <h2 class="section-title">What I work with</h2>
         </div>
       </div>
 
-    </div>
-  </div>
-</section>
-<section id="contact" class="contact">
-  <div class="container">
-    <p class="section-label reveal">Get in touch</p>
-    <h2 class="section-title reveal">Contact</h2>
-    <p class="contact__desc reveal">
-      Open to new opportunities. Reach out via email or connect on LinkedIn.
-    </p>
-    <div class="contact__links reveal">
-      <a href="https://mail.google.com/mail/?view=cm&fs=1&to=khanalkshitiz05@gmail.com" target="_blank" rel="noopener" class="contact__link">
-        <span class="contact__icon">✉</span>
-        khanalkshitiz05@gmail.com
-      </a>
-      <a href="https://www.linkedin.com/in/kshitizkhanal05/" target="_blank" rel="noopener" class="contact__link">
-        <span class="contact__icon">in</span>
-        linkedin.com/in/kshitizkhanal05
-      </a>
-    </div>
-  </div>
-</section>
+      <div class="skills-grid reveal">
 
-<footer class="footer">
-  <div class="container">
-    <p>© 2026 Kshitiz Khanal</p>
-  </div>
-</footer>
+        <div class="skill-group">
+          <div class="skill-group__num">01</div>
+          <span class="skill-group__label">Languages</span>
+          <div class="chips">
+            <span class="chip">Python</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__num">02</div>
+          <span class="skill-group__label">Data &amp; Pipelines</span>
+          <div class="chips">
+            <span class="chip">SQL</span>
+            <span class="chip">Apache Airflow</span>
+            <span class="chip">PostgreSQL</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__num">03</div>
+          <span class="skill-group__label">Queuing</span>
+          <div class="chips">
+            <span class="chip">Celery</span>
+            <span class="chip">SQS</span>
+            <span class="chip">RabbitMQ</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__num">04</div>
+          <span class="skill-group__label">AI / NLP</span>
+          <div class="chips">
+            <span class="chip">spaCy</span>
+            <span class="chip">stanza</span>
+            <span class="chip">LLM Integration</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__num">05</div>
+          <span class="skill-group__label">Frameworks</span>
+          <div class="chips">
+            <span class="chip">Django</span>
+            <span class="chip">Flask</span>
+            <span class="chip">FastAPI</span>
+          </div>
+        </div>
+
+        <div class="skill-group">
+          <div class="skill-group__num">06</div>
+          <span class="skill-group__label">Cloud &amp; Ops</span>
+          <div class="chips">
+            <span class="chip">AWS</span>
+            <span class="chip">Docker</span>
+            <span class="chip">Linux</span>
+            <span class="chip">Git</span>
+            <span class="chip">Claude Code</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">03 /</span>
+        <div>
+          <p class="section-kicker">Where I've worked · Track Record</p>
+          <h2 class="section-title">Work history</h2>
+        </div>
+      </div>
+
+      <div class="timeline">
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year">
+            2024<small>— Present</small>
+          </div>
+          <div>
+            <h3 class="timeline__company">Maitri Services</h3>
+            <span class="timeline__role">Software Engineer</span>
+            <ul class="timeline__bullets">
+              <li>Built and maintained an LLM-based processing microservice for batch HCC medical code extraction using Django, Celery, SQS, and PostgreSQL.</li>
+              <li>Developed multiple Apache Airflow DAGs for ETL, billing, and multi-tenant reporting pipelines.</li>
+              <li>Implemented clinical NLP pipelines using spaCy and stanza for medical text extraction and negation detection.</li>
+              <li>Integrated AWS S3/SQS and Google Cloud Storage/Vision for document processing workflows.</li>
+            </ul>
+          </div>
+          <div class="timeline__tag">Current · Healthcare AI</div>
+        </div>
+
+        <div class="timeline__item reveal">
+          <div class="timeline__year">
+            2023<small>— 2024</small>
+          </div>
+          <div>
+            <h3 class="timeline__company">Insight Workshop</h3>
+            <span class="timeline__role">Software Engineer</span>
+            <ul class="timeline__bullets">
+              <li>Built REST APIs for an educational platform using Python, Django REST Framework, and PostgreSQL.</li>
+              <li>Designed data models and implemented role-based access control (RBAC).</li>
+            </ul>
+          </div>
+          <div class="timeline__tag">Edu · Platforms</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="contact">
+    <div class="container">
+      <div class="section-head reveal">
+        <span class="section-num">04 /</span>
+        <div>
+          <p class="section-kicker">Get in touch · Inquiries</p>
+          <h2 class="section-title">Contact</h2>
+        </div>
+      </div>
+
+      <p class="contact__big reveal">
+        Got a problem worth <span class="underline">solving</span>?<br>
+        Let&rsquo;s build something <span class="underline">that ships</span>.
+      </p>
+
+      <div class="contact__grid reveal">
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&to=khanalkshitiz05@gmail.com" target="_blank" rel="noopener" class="contact__link">
+          <div>
+            <span class="contact__link__label">Email · Direct</span>
+            khanalkshitiz05@gmail.com
+          </div>
+          <span class="contact__link__arrow">→</span>
+        </a>
+        <a href="https://www.linkedin.com/in/kshitizkhanal05/" target="_blank" rel="noopener" class="contact__link">
+          <div>
+            <span class="contact__link__label">LinkedIn · Network</span>
+            /in/kshitizkhanal05
+          </div>
+          <span class="contact__link__arrow">→</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container">
+      <span>© 2026 Kshitiz Khanal</span>
+      <span>Built with Claude Code · Last updated 2026</span>
+    </div>
+  </footer>
 
   <script src="main.js"></script>
 </body>
