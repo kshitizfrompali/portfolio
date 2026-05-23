@@ -46,7 +46,6 @@ img, svg { display: block; max-width: 100%; }
   outline-offset: 3px;
 }
 .contact :focus-visible,
-.marquee :focus-visible,
 .footer :focus-visible {
   outline-color: var(--accent-bright);
 }
@@ -154,6 +153,16 @@ section {
   font-size: 18px;
   text-transform: uppercase;
   letter-spacing: -0.5px;
+  white-space: nowrap;
+}
+@media (max-width: 900px) {
+  .nav__name { font-size: 15px; }
+}
+@media (max-width: 640px) {
+  .nav__name { font-size: 13px; letter-spacing: -0.3px; }
+}
+@media (max-width: 380px) {
+  .nav__name { font-size: 12px; }
 }
 
 .nav__links {
@@ -345,42 +354,6 @@ section {
   border-color: var(--ink);
 }
 
-/* ── Marquee (Skills Ticker) ──────────────────────────────── */
-.marquee {
-  border-top: var(--rule) solid var(--ink);
-  border-bottom: var(--rule) solid var(--ink);
-  background: var(--ink);
-  color: var(--paper);
-  overflow: hidden;
-  padding: 18px 0;
-  white-space: nowrap;
-}
-.marquee__track {
-  display: inline-flex;
-  gap: 48px;
-  animation: marquee 50s linear infinite;
-  min-width: 200%;
-  will-change: transform;
-}
-.marquee__track span {
-  font-family: var(--f-display);
-  font-size: 28px;
-  text-transform: uppercase;
-  letter-spacing: -0.5px;
-  display: inline-flex;
-  align-items: center;
-  gap: 48px;
-}
-.marquee__track span::after {
-  content: '✦';
-  color: var(--accent-bright);
-  font-size: 22px;
-}
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to   { transform: translateX(-33.333%); }
-}
-
 /* ── Skills ───────────────────────────────────────────────── */
 .skills-grid {
   display: grid;
@@ -535,6 +508,55 @@ section {
 @media (max-width: 768px) {
   .timeline__year { font-size: 36px; }
   .timeline__company { font-size: 22px; }
+}
+
+/* ── Writing ──────────────────────────────────────────────── */
+.writing-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+@media (max-width: 700px) {
+  .writing-grid { grid-template-columns: 1fr; }
+}
+
+.writing-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 36px 28px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  background: var(--paper);
+  color: var(--ink);
+  transition: background 0.15s, color 0.15s;
+}
+.writing-card:hover {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.writing-card__url {
+  font-family: var(--f-mono);
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  word-break: break-all;
+}
+
+.writing-card__arrow {
+  font-family: var(--f-display);
+  font-size: 26px;
+  transition: transform 0.18s;
+  flex-shrink: 0;
+}
+.writing-card:hover .writing-card__arrow { transform: translateX(6px); }
+
+@media (max-width: 768px) {
+  .writing-card { padding: 28px 22px; }
 }
 
 /* ── Contact ──────────────────────────────────────────────── */
